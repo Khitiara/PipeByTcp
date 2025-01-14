@@ -30,7 +30,7 @@ public class ClientConnection : IDisposable, IAsyncDisposable
 
     private async Task ReadAsync(CancellationToken cancellationToken)
     {
-        await _pipeServ.CopyToAsync(_stream, cancellationToken);
+        await _stream.CopyToAsync(_pipeServ, cancellationToken);
     }
 
     public void Dispose()
